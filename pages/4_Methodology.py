@@ -1,37 +1,15 @@
 import streamlit as st
 
-st.header("📐 Methodology")
-
 st.markdown("""
-### Purpose
-TransferIQ is a **decision-support tool**, not a prediction engine.
-It helps programs evaluate **tradeoffs under uncertainty**.
+### TransferIQ Methodology
 
----
+• Decision-support, not prediction  
+• Transparent regression  
+• Scheme-aware fit modeling  
+• NIL efficiency, not valuation  
+• Built for institutional trust  
 
-### Modeling Approach
-- Regularized regression (Elastic Net)
-- Transparent coefficients
-- Stable outputs
-- No black-box AI
-
----
-
-### Target Variable
-- Year-1 snaps played post-transfer
-
----
-
-### What This Tool Does NOT Do
-- Predict wins or championships
-- Replace scouting or film
-- Rank players by hype
-- Make gambling recommendations
-
----
-
-### Why This Matters
-Transfer recruiting is capital allocation.
-This tool helps programs avoid inefficient spend and improve expected outcomes.
+This system helps programs allocate roster spots
+under uncertainty more efficiently than competitors.
 """)
 
