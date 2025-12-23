@@ -1,1 +1,12 @@
+player,position,from_conf,to_conf,prev_snaps,years_exp,starter_prev,scheme_match,nil_bucket,year1_snaps
+John Smith,QB,G5,P5,420,3,1,0.85,High,620
+Mike Johnson,QB,P5,P5,210,2,0,0.70,Mid,280
+Chris Allen,RB,P5,P5,310,2,0,0.80,Low,450
+Devin Brown,RB,G5,P5,520,3,1,0.90,Mid,680
+Tyler White,WR,P5,P5,150,1,0,0.65,Low,220
+Aaron Green,WR,G5,P5,430,3,1,0.88,Mid,610
+Marcus Lee,LB,P5,P5,500,4,1,0.75,High,540
+Jordan Davis,LB,G5,P5,380,3,0,0.82,Low,460
+Evan Taylor,OL,P5,P5,620,4,1,0.78,High,700
+Ryan Miller,OL,G5,P5,440,3,1,0.85,Mid,630
 
