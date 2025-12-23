@@ -1,16 +1,12 @@
 import streamlit as st
 
-st.set_page_config(
-    page_title="TransferIQ — NCAA Football",
-    layout="wide"
-)
+st.set_page_config("TransferIQ — NCAA Football", layout="wide")
 
-st.title("🏈 TransferIQ — NCAA Football")
+st.title("🏈 TransferIQ")
 st.markdown("""
-**Decision-support analytics for transfer portal recruiting & NIL efficiency.**
+**Transfer Portal & NIL Decision Intelligence**
 
-This tool ranks transfer candidates by **expected Year-1 contribution**, **scheme fit**, and **cost efficiency**.
+Built for roster allocation, not hype.
 """)
 
-st.info("Use the sidebar to explore rankings, player profiles, and methodology.")
 
