@@ -1,42 +1,31 @@
 import streamlit as st
 import pandas as pd
-from models.regression import train_model, predict
-from utils.scoring import fit_score, cost_efficiency
+from models.regression import train, predict
+from utils.scheme_fit import compute_scheme_fit
+from utils.scoring import total_score
 
-st.header("📊 Transfer Rankings")
-
+teams = pd.read_csv("data/teams.csv")
 df = pd.read_csv("data/transfers.csv")
-model = train_model(df)
+
+team = st.selectbox("Select Team", teams["team"])
+team_row = teams[teams["team"] == team].iloc[0]
+
+df["scheme_match"] = df["position"].apply(
+    lambda p: compute_scheme_fit(p, team_row["offense"])
+)
+
+model = train(df)
 df = predict(df, model)
 
-df["Fit Score"] = df["scheme_match"].apply(fit_score)
-df["Cost Efficiency"] = df.apply(
-    lambda x: cost_efficiency(x["expected_snaps"], x["nil_bucket"]),
-    axis=1
-)
+df["Total Score"] = df.apply(total_score, axis=1)
+df = df.sort_values("Total Score", ascending=False)
 
-position = st.selectbox("Filter by Position", ["All"] + sorted(df["position"].unique()))
-
-if position != "All":
-    df = df[df["position"] == position]
-
-df = df.sort_values("expected_snaps", ascending=False)
-
-st.dataframe(
-    df[[
-        "player",
-        "position",
-        "expected_snaps",
-        "Fit Score",
-        "Cost Efficiency",
-        "nil_bucket"
-    ]],
-    use_container_width=True
-)
-
-st.download_button(
-    "⬇️ Export Shortlist",
-    df.to_csv(index=False),
-    file_name="transfer_shortlist.csv"
-)
+st.dataframe(df[[
+    "player",
+    "position",
+    "expected_snaps",
+    "scheme_match",
+    "nil_bucket",
+    "Total Score"
+]], use_container_width=True)
 
