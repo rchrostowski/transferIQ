@@ -1,9 +1,9 @@
-import numpy as np
+from models.contribution import year1_contribution
 
-def fit_score(scheme_match):
-    return scheme_match * 100
-
-def cost_efficiency(expected_snaps, nil_bucket):
-    cost_map = {"Low": 1, "Mid": 2, "High": 3}
-    return expected_snaps / cost_map[nil_bucket]
+def total_score(row):
+    return year1_contribution(
+        row["expected_snaps"],
+        row["scheme_match"],
+        row["nil_bucket"]
+    )
 
